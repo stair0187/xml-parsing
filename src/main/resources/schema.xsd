@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+
+    <xs:element name="Beer" type="BeerElementType"/>
+
+    <xs:complexType name="BeerElementType">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="Type" type="Type"/>
+            <xs:element name="Manufacturer" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="Ingredients" type="IngredientType"/>
+            <xs:element name="Chars" type="CharsType"/>
+        </xs:sequence>
+        <xs:attribute name="alcohol" type="xs:boolean" default="true"/>
+    </xs:complexType>
+
+    <xs:simpleType name="Type" final="restriction">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="light"/>
+            <xs:enumeration value="dark"/>
+            <xs:enumeration value="lager"/>
+            <xs:enumeration value="ipa"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="IngredientType">
+        <xs:sequence>
+            <xs:element name="Ingredient" type="xs:string" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CharsType">
+        <xs:sequence>
+            <xs:element name="Alco" type="xs:float" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="Transparency" type="xs:float" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="NutritionalValue" type="xs:int" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="Spill" type="SpillType" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="SpillType">
+        <xs:sequence>
+            <xs:element name="Volume" type="xs:int" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="PackageMaterial" type="PackageMaterialType" minOccurs="1" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="PackageMaterialType" final="restriction">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="plastic"/>
+            <xs:enumeration value="alluminium"/>
+            <xs:enumeration value="glass"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
+

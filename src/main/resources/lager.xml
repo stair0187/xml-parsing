@@ -1,0 +1,19 @@
+<Beer alcohol="true">
+  <Name>string</Name>
+  <Type>lager</Type>
+  <Manufacturer>string</Manufacturer>
+  <Ingredients>
+    <!--1 or more repetitions:-->
+    <Ingredient>string</Ingredient>
+  </Ingredients>
+  <Chars>
+    <!--Optional:-->
+    <Alco>1.5E2</Alco>
+    <Transparency>1.5E2</Transparency>
+    <NutritionalValue>3</NutritionalValue>
+    <Spill>
+      <Volume>3</Volume>
+      <PackageMaterial>alluminium</PackageMaterial>
+    </Spill>
+  </Chars>
+</Beer>
