@@ -38,7 +38,7 @@ public class StaxParser {
                     break;
 
                 case XMLStreamConstants.CHARACTERS:
-                    content = reader.getText().trim();
+                    content = reader.getText();
                     break;
 
                 case XMLStreamConstants.END_ELEMENT:
